@@ -1,4 +1,8 @@
 // Find if the frequency of the most occurring element in an array is more than half of the length of the array or not.
+//    1. Brute force
+//    2. Sorting Technique
+//    3. Using Hashmap
+//    4. Moore's Voting Algorithm
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -7,7 +11,7 @@ import java.util.Map;
 public class MajorityElementInAnArray {
     public static void main(String[] args) {
         int[] a = {5, 1, 4, 1, 1, 2, 2, 2, 2, 2, 2};
-        a = new int[]{2, 2, 2, 2};//
+//        a = new int[]{2, 2, 2, 2};
 //        a = new int[]{1, 1, 3, 3};
         int res1 = bruteMethod(a);
         System.out.println(res1);
@@ -96,7 +100,7 @@ public class MajorityElementInAnArray {
         return -1;
     }
 
-    public static int mooreVotingAlgorithm(int[] a){
+    public static int mooreVotingAlgorithm(int[] a){ // Time complexity: O(n) and Space Complexity O(1)
         int ansIndex = 0;
         int count = 1, n = a.length;
 
