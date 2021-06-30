@@ -1,38 +1,50 @@
-/*The Trick here to calculate the maximum area histogram is to calculate the nearest smallest value to the right and left for each block,
-        which would give us the width of a block, and using the block height and max width,
-        we can calculate the area. We need to calculate the nearest smallest to the right and left because,
-        that would tell us that if the difference between the left and right is only 1 then that will mean that block is standing alone,
-        if the nearest smallest is far away, it means width will be bigger,
-        as it is covering more area. So this way we can calculate the max area histogram. Note: Add a pseudoIndex which means an extra imaginary
-        block before and after the first and last block, this imaginary block will basically mean that there is a block before first block of
-        height 0, at index -1, and a block of height 0 after last block at index length+1.*/
-
-/*Steps:
-    1. Find an array of nearest smallest to the right
-    2. Find an array of nearest smallest to the left
-    3. Calculate width array using formula = right[i] - left[i] - 1
-    4. multiply given array and the width to get each area and get the maximum one.*/
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
 
-public class MaximumAreaHistogram {
+public class MaximumAreaRectangleBinary {
     public static void main(String[] args) {
-        int[] a = {6, 2, 5, 4, 5, 1, 6};
-        ArrayList<Integer> right = smallestToTheRight(a);
-        ArrayList<Integer> left = smallestToTheLeft(a);
+        int[][] arr = {{0, 1, 1, 0}, {1,1,1,1}, {1,1,1,1}, {1,1,0,0}};
+        int maxArea = Integer.MIN_VALUE, histoArea = 0;
+        int[] histo = new int[arr[0].length];
 
-        int[] width = new int[a.length];
-        int maxArea = Integer.MIN_VALUE;
-        for(int i=0;i<a.length;i++){
-            width[i] = right.get(i) - left.get(i) - 1;
-            maxArea = Math.max(maxArea, a[i]*width[i]);
-
+        for(int i=0;i<arr.length;i++) {
+            for (int j = 0; j < arr.length; j++) {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
         }
+
+        System.out.println("Area of each histogram");
+
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length;j++) {
+                if(arr[i][j] != 0)
+                    histo[j] += arr[i][j];
+                else
+                    histo[j] = 0;
+            }
+            histoArea = maximumAreaHistogram(histo);
+            System.out.print(histoArea + " ");
+            maxArea = Math.max(maxArea, histoArea);
+        }
+        System.out.println();
         System.out.println(maxArea);
     }
 
+    public static int maximumAreaHistogram(int[] arr){
+        ArrayList<Integer> right = smallestToTheRight(arr);
+        ArrayList<Integer> left = smallestToTheLeft(arr);
+
+        int[] width = new int[arr.length];
+        int maxArea = Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            width[i] = right.get(i) - left.get(i) - 1;
+            maxArea = Math.max(maxArea, arr[i]*width[i]);
+
+        }
+        return maxArea;
+    }
     public static ArrayList<Integer> smallestToTheRight(int[] arr){
         Stack<Integer> stack = new Stack<>();
         Stack<Integer> index = new Stack<>();
@@ -58,7 +70,6 @@ public class MaximumAreaHistogram {
             index.push(i);
         }
         Collections.reverse(al);
-        System.out.println("Smallest to the right " + al);
         return al;
     }
 
@@ -87,7 +98,6 @@ public class MaximumAreaHistogram {
             stack.push(arr[i]);
             index.push(i);
         }
-        System.out.println("Smallest to the left " + al);
         return al;
     }
 }
