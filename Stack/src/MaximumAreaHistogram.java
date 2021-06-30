@@ -7,6 +7,12 @@
         block before and after the first and last block, this imaginary block will basically mean that there is a block before first block of
         height 0, at index -1, and a block of height 0 after last block at index length+1.*/
 
+/*Steps:
+    1. Find an array of nearest smallest to the right
+    2. Find an array of nearest smallest to the left
+    3. Calculate width array using formula = right[i] - left[i] - 1
+    4. multiply given array and the width to get each area and get the maximum one.*/
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Stack;
