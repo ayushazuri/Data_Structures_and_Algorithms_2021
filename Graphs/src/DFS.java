@@ -35,6 +35,9 @@ public class DFS {
         }
     }
 
+    public void dfsRecursive(int source){
+
+    }
     public void print(){
         for(int i =0;i<list.length;i++){
             System.out.print(i + "=>");

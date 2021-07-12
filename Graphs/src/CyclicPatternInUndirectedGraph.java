@@ -25,7 +25,7 @@ public class CyclicPatternInUndirectedGraph {
                     return true;
                 else if(i != parent){
                     return true;
-            }
+                }
         }
         return false;
     }
