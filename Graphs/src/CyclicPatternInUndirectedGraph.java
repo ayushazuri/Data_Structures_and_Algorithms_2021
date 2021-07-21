@@ -23,7 +23,7 @@ public class CyclicPatternInUndirectedGraph {
             if(!visited[i])
                 if(checkForCycle(i, node, visited))
                     return true;
-                else if(i != parent){
+                else if(i != parent) {
                     return true;
                 }
         }
