@@ -11,7 +11,8 @@ public class CommonElements {
         ArrayList<Integer> al = commonElements(a, b, c, a.length, b.length, c.length);
         System.out.println(al);
     }
-    static ArrayList<Integer> commonElements(int a[], int b[], int c[], int n1, int n2, int n3)
+    static ArrayList<Integer> commonElements(int a[], int b[], int c[], int n1, int n2, int n3) // Try to handle common elements inline only,
+    // without using another data structure
     {
         // code here
         int i=0,j=0,k=0;
