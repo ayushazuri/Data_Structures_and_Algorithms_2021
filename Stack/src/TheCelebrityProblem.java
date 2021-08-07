@@ -8,7 +8,7 @@
 
 import java.util.Stack;
 
-public class TheCelebrityProblem {
+public class TheCelebrityProblem { //Space O(n) time O(n)
     int celebrity(int mat[][], int n)
     {
         // code here
@@ -21,16 +21,16 @@ public class TheCelebrityProblem {
             int i = s.pop();
             int j = s.pop();
 
-            if(mat[i][j] == 1)
+            if(mat[i][j] == 1) // if i knows j that means i can never be celebrity coz celebrity can never know someone, so j can be celebrity
                 s.push(j);
-            else
+            else               // if i does not know j, then j can't be celeb coz celeb is known by everyone, so i can be celeb
                 s.push(i);
 
         }
         if(s.isEmpty())
             return -1;
         int pot = s.pop();
-        for(int i = 0;i<mat.length;i++){
+        for(int i = 0;i<mat.length;i++){ //rerun to check if pot is actually the celeb
             if(i != pot){
                 if(mat[i][pot] == 0 || mat[pot][i] == 1)
                     return -1;
@@ -39,4 +39,20 @@ public class TheCelebrityProblem {
 
         return pot;
     }
+    int celebrityLinear(int mat[][], int n){ //Space O(1) Time O(n)
+        int i = 0, j = n-1;
+        while(i <= j){
+            if(mat[i][j] == 1)
+                i++;
+            else
+                j--;
+        }
+        int pot = i;
+        for(i = 0;i<n;i++){
+            if(i != pot && (mat[i][pot] == 0 || mat[pot][i] == 1))
+                return -1;
+        }
+        return pot;
+    }
+
 }
