@@ -37,7 +37,7 @@ public class CycleDetectionDirectedDFS {
             if(vis[i] == 0){
                 if(checkForCycle(i, vis, dfsVis)){
                     return true;
-                }else if(dfsVis[i] == 1)
+                }else if(dfsVis[i] != 1)
                     return true;
             }
         }
