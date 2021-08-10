@@ -57,7 +57,7 @@ public class ShortestPathDirectedWt {
         int[] dist = new int[v];
         Arrays.fill(dist, Integer.MAX_VALUE);
         while(!stack.isEmpty()){
-            int node = stack.peek();
+            int node = stack.pop();
             if(dist[node] != Integer.MAX_VALUE){
                 for(Pair i: list[node]){
                     if(dist[node] + i.second < dist[i.first])
