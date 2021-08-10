@@ -2,10 +2,12 @@
 public class CountUniquePathsToEnd {
 
     static int numberOfPaths(int m, int n, int row, int col) {
-        if(m > row || n > col)
-            return 0;
         if(m == row-1 && n == col-1)
             return 1;
+
+        if(m >= row || n >= col)
+            return 0;
+
         return numberOfPaths(m +1, n, row, col) + numberOfPaths(m, n +1, row, col);
         // + numberOfPaths(m-1, n-1);
     }
