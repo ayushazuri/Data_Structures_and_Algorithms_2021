@@ -6,7 +6,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class largestSubarrayWithZeroSum {
+public class LargestSubarrayWithZeroSum {
     public static void main(String arg[])
     {
         Scanner sc = new Scanner(System.in);
