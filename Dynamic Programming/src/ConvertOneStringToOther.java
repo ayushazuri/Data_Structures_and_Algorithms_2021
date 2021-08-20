@@ -2,8 +2,8 @@
 
 public class ConvertOneStringToOther {
     public static void main(String[] args) {
-        String s1 = "table";
-        String s2 = "ta";
+        String s1 = "atable";
+        String s2 = "tal";
         int m = s1.length();
         int n = s2.length();
         System.out.println(convert(s1, s2, m, n));
@@ -13,7 +13,7 @@ public class ConvertOneStringToOther {
         if(m == 0)
             return n;
         if(n == 0)
-            return 0;
+            return m;
 
         if(s1.charAt(m-1) == s2.charAt(n-1))
             return convert(s1, s2, m-1, n-1);
