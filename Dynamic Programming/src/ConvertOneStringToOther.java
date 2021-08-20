@@ -18,9 +18,9 @@ public class ConvertOneStringToOther {
         if(s1.charAt(m-1) == s2.charAt(n-1))
             return convert(s1, s2, m-1, n-1);
         else{
-            int c1 = 1 + convert(s1, s2, m-1, n);
-            int c2 = 1 + convert(s1, s2, m-1, n-1);
-            int c3 = 1 + convert(s1, s2, m, n-1);
+//            int c1 = 1 + convert(s1, s2, m-1, n);
+//            int c2 = 1 + convert(s1, s2, m-1, n-1);
+//            int c3 = 1 + convert(s1, s2, m, n-1);
             return 1+Math.min(convert(s1, s2, m-1, n), Math.min(convert(s1, s2, m-1, n-1), convert(s1, s2, m, n-1)));
         }
     }
