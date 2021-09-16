@@ -35,11 +35,10 @@ public class CycleDetectionDirectedDFS {
 
         for(int i: list[node]){
             if(vis[i] == 0){
-                if(checkForCycle(i, vis, dfsVis)){
+                if(checkForCycle(i, vis, dfsVis))
                     return true;
-                }else if(dfsVis[i] == 1)
-                    return true;
-            }
+            }else if(dfsVis[i] == 1)
+                return true;
         }
         dfsVis[node] = 0;
         return false;
