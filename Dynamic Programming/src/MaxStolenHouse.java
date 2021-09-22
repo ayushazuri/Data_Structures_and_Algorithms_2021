@@ -26,7 +26,7 @@ public class MaxStolenHouse {
         if (n == 2)
             return Math.max(hval[0], hval[1]);
 
-        int[] dp = new int[n];
+        int[] dp = new int[n+1]; //because from function calling we are sending n-1
         dp[0] = hval[0];
         dp[1] = Math.max(hval[0], hval[1]);
 
