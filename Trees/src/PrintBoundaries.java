@@ -25,10 +25,10 @@ public class PrintBoundaries {
         if(root == null) return;
 
         if(root.right != null){
-            printLeftBoundary(root.right);
+            printRightBoundary(root.right);
             System.out.print(root.data + " ");
         }else if(root.left != null){
-            printLeftBoundary(root.left);
+            printRightBoundary(root.left);
             System.out.print(root.data + " ");
         }
     }
