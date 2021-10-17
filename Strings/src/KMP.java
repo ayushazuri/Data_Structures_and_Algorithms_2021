@@ -20,7 +20,7 @@ public class KMP {
                 i++;
                 j++;
             }
-            if(j == m){
+            if(j == n){
                 System.out.println("found at" + (i-j));
                 j = lps[j-1];
             }else if(i < m && j < n && s.charAt(i) != p.charAt(j) ){
