@@ -12,7 +12,7 @@ public class SetZeroMatrix {
             }
         }
 
-        for(int i = 0;i<r;i++){
+        for(int i = a.length-1;i>-0;i--){
             for(int j = a.length-1;j>=0;j--){
                 if(a[i][0] == 0 || a[0][j] == 0)
                     a[i][j] = 0;
