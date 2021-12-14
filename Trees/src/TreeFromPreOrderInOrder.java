@@ -17,7 +17,7 @@ public class TreeFromPreOrderInOrder {
         int[] in = {1, 2, 30}; //dummy data
         int[] pre = {2, 1, 30};
 
-        for(int i: in){
+        for(int i=0;i<in.length;i++){
             map.put(in[i], i);
         }
         conversion(in, pre, 0, in.length-1);
